@@ -14,14 +14,14 @@ jobs:
           name: Install dependencies
           command: |
             sudo apt-get update
-            sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev mysql-server
+            sudo apt-get install python3-pip libsasl2-dev python-dev libldap2-dev libssl-dev mysql-server
       - run:
           name: Prepare virtualenv
           command: |
             virtualenv venv
             source venv/bin/activate
             python setup.py develop
-            pip install -e .[dev]
+            pip3 install -e .[dev]
       - run:
           name: Setup MySQL
           command: |
